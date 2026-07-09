@@ -24,7 +24,7 @@ const mono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "EPN Workshop · Setup Guide",
   description:
-    "Prepare for the Cursor workshop: create accounts, install Cursor, then open the template repository.",
+    "Prepare for the Cursor workshop: install Cursor, create accounts, then open the template repository.",
 };
 
 export default function RootLayout({

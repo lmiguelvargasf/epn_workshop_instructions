@@ -55,3 +55,31 @@ export function CheckIcon() {
     </span>
   );
 }
+
+export function RocketIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden
+    >
+      <path
+        d="M12 15c-1.8-1.8-2.7-4.1-2.4-7.2.2-1.8 1.1-3.5 2.4-4.8 1.3 1.3 2.2 3 2.4 4.8.3 3.1-.6 5.4-2.4 7.2Z"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.6 12.4 5 14l2.2 2.2L9 20l1.6-4.6M14.4 12.4 19 14l-2.2 2.2L15 20l-1.6-4.6"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="9" r="1.15" fill="currentColor" />
+    </svg>
+  );
+}

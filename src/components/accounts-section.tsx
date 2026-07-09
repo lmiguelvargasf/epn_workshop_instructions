@@ -10,13 +10,14 @@ export function AccountsSection({ reduceMotion }: { reduceMotion: boolean }) {
       <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
         <div className="max-w-2xl">
           <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">
-            Step one
+            Step two
           </p>
           <h2 className="mt-4 font-display text-3xl tracking-tight text-foreground sm:text-5xl">
             Accounts you need
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-            Sign up for each service before the workshop. Free plans are enough.
+            After installing Cursor, sign up for each service. Free plans are
+            enough.
           </p>
         </div>
 

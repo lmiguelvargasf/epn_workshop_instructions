@@ -3,8 +3,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { AccountsSection } from "@/components/accounts-section";
-import { ChecklistSection, TemplateSection } from "@/components/content-sections";
 import { InstallSection } from "@/components/install-section";
+import { ReadySection } from "@/components/ready-section";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { TEMPLATE_URL } from "@/components/workshop-data";
 
@@ -69,16 +69,16 @@ export function WorkshopPage() {
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl"
             {...fadeUp(0.16)}
           >
-            Create three accounts, install Cursor, then open the template
+            Install Cursor, create your accounts, then open the template
             repository. Bring these ready and you can build and deploy during
             the session.
           </motion.p>
           <motion.div className="mt-10 flex flex-wrap gap-3" {...fadeUp(0.24)}>
             <a
-              href="#accounts"
+              href="#install"
               className="inline-flex h-12 items-center justify-center rounded-full bg-accent px-6 text-sm font-medium text-accent-fg transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
-              View requirements
+              Start setup
             </a>
             <a
               href={TEMPLATE_URL}
@@ -91,10 +91,9 @@ export function WorkshopPage() {
           </motion.div>
         </section>
 
-        <AccountsSection reduceMotion={!!reduceMotion} />
         <InstallSection reduceMotion={!!reduceMotion} />
-        <TemplateSection />
-        <ChecklistSection />
+        <AccountsSection reduceMotion={!!reduceMotion} />
+        <ReadySection />
       </main>
 
       <footer className="relative z-10 border-t border-border/70">

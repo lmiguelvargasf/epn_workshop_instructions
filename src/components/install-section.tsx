@@ -57,14 +57,14 @@ export function InstallSection({ reduceMotion }: { reduceMotion: boolean }) {
       <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">
-            Step two
+            Step one
           </p>
           <h2 className="mt-4 font-display text-3xl tracking-tight text-foreground sm:text-5xl">
             Install Cursor
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-            After creating your accounts, download the desktop app. This is the
-            editor we will use for the whole workshop.
+            Start by downloading the desktop app. This is the editor we will
+            use for the whole workshop.
           </p>
         </div>
 
@@ -99,8 +99,8 @@ export function InstallSection({ reduceMotion }: { reduceMotion: boolean }) {
                 </div>
 
                 <p className="mt-7 max-w-md text-base leading-relaxed text-foreground/90">
-                  Download and install Cursor for your operating system, then
-                  sign in with the account you just created.
+                  Download and install Cursor for your operating system. You
+                  can create your account in the next step if you need one.
                 </p>
 
                 <ol className="mt-8 space-y-3 text-sm text-muted">
