@@ -10,6 +10,7 @@ import {
   type DownloadPlatform,
   platformDownloads,
 } from "@/components/workshop-data";
+import type { Dictionary } from "@/i18n/types";
 
 function detectPlatform(): DownloadPlatform {
   if (typeof navigator === "undefined") return "darwin-universal";
@@ -40,7 +41,12 @@ function detectPlatform(): DownloadPlatform {
   return "darwin-universal";
 }
 
-export function InstallSection({ reduceMotion }: { reduceMotion: boolean }) {
+type InstallSectionProps = {
+  reduceMotion: boolean;
+  copy: Dictionary["install"];
+};
+
+export function InstallSection({ reduceMotion, copy }: InstallSectionProps) {
   const [platform, setPlatform] = useState<DownloadPlatform>("darwin-universal");
   const [ready, setReady] = useState(false);
 
@@ -51,20 +57,21 @@ export function InstallSection({ reduceMotion }: { reduceMotion: boolean }) {
 
   const download =
     platformDownloads[platform] ?? platformDownloads["darwin-universal"];
+  const shortLabel = copy.platforms[download.platformKey];
+  const downloadLabel = copy.downloadFor.replace("{platform}", shortLabel);
 
   return (
     <section id="install" className="scroll-mt-24 border-t border-border/70">
       <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
         <div className="mx-auto max-w-2xl text-center">
           <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">
-            Step one
+            {copy.eyebrow}
           </p>
           <h2 className="mt-4 font-display text-3xl tracking-tight text-foreground sm:text-5xl">
-            Install Cursor
+            {copy.title}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-            Start by downloading the desktop app. This is the editor we will
-            use for the whole workshop.
+            {copy.description}
           </p>
         </div>
 
@@ -90,32 +97,25 @@ export function InstallSection({ reduceMotion }: { reduceMotion: boolean }) {
                   </span>
                   <div>
                     <h3 className="font-display text-2xl tracking-tight text-foreground">
-                      Cursor IDE
+                      {copy.productName}
                     </h3>
                     <p className="mt-0.5 text-sm text-muted">
-                      The AI code editor
+                      {copy.productTagline}
                     </p>
                   </div>
                 </div>
 
                 <p className="mt-7 max-w-md text-base leading-relaxed text-foreground/90">
-                  Download and install Cursor for your operating system. You
-                  can create your account in the next step if you need one.
+                  {copy.body}
                 </p>
 
                 <ol className="mt-8 space-y-3 text-sm text-muted">
-                  <li className="flex gap-3">
-                    <span className="font-mono text-accent">1</span>
-                    <span>Download the installer for your machine.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="font-mono text-accent">2</span>
-                    <span>Open Cursor and sign in.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="font-mono text-accent">3</span>
-                    <span>Keep it ready for the workshop session.</span>
-                  </li>
+                  {copy.steps.map((step, index) => (
+                    <li key={step} className="flex gap-3">
+                      <span className="font-mono text-accent">{index + 1}</span>
+                      <span>{step}</span>
+                    </li>
+                  ))}
                 </ol>
               </div>
 
@@ -126,7 +126,7 @@ export function InstallSection({ reduceMotion }: { reduceMotion: boolean }) {
                 >
                   <DownloadIcon className="transition-transform group-hover:translate-y-0.5" />
                   <span className={ready ? undefined : "opacity-80"}>
-                    {download.label}
+                    {downloadLabel}
                   </span>
                 </a>
 
@@ -137,7 +137,7 @@ export function InstallSection({ reduceMotion }: { reduceMotion: boolean }) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                   >
-                    All platforms
+                    {copy.allPlatforms}
                     <ExternalIcon className="ml-1.5" />
                   </a>
                   <span className="hidden text-border sm:inline" aria-hidden>
@@ -149,12 +149,16 @@ export function InstallSection({ reduceMotion }: { reduceMotion: boolean }) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center text-muted transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                   >
-                    Install guide
+                    {copy.installGuide}
                     <ExternalIcon className="ml-1.5" />
                   </a>
                 </div>
 
-                <div className="flex flex-wrap gap-2 pt-1" role="group" aria-label="Choose platform">
+                <div
+                  className="flex flex-wrap gap-2 pt-1"
+                  role="group"
+                  aria-label={copy.choosePlatform}
+                >
                   {(
                     [
                       ["darwin-universal", "mac"],
@@ -179,7 +183,7 @@ export function InstallSection({ reduceMotion }: { reduceMotion: boolean }) {
                             : "border-border text-muted hover:border-foreground/20 hover:text-foreground"
                         }`}
                       >
-                        {item.shortLabel}
+                        {copy.platforms[item.platformKey]}
                       </button>
                     );
                   })}
@@ -212,7 +216,7 @@ export function InstallSection({ reduceMotion }: { reduceMotion: boolean }) {
                   >
                     <Image
                       src="/cursor-agents-diff.jpg"
-                      alt="Cursor 3 agent proposing code changes with inline diffs"
+                      alt={copy.imageAltDiff}
                       width={1400}
                       height={920}
                       className="h-auto w-full object-cover object-left-top"
@@ -237,7 +241,7 @@ export function InstallSection({ reduceMotion }: { reduceMotion: boolean }) {
                   >
                     <Image
                       src="/cursor-agents-window.jpg"
-                      alt="Cursor 3 Agents Window with completed agent task and code review"
+                      alt={copy.imageAltAgents}
                       width={1680}
                       height={1020}
                       className="h-auto w-full object-cover object-left-top"

@@ -4,12 +4,21 @@ import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { AccountsSection } from "@/components/accounts-section";
 import { InstallSection } from "@/components/install-section";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { ReadySection } from "@/components/ready-section";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { TEMPLATE_URL } from "@/components/workshop-data";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/types";
 
-export function WorkshopPage() {
+type WorkshopPageProps = {
+  locale: Locale;
+  dictionary: Dictionary;
+};
+
+export function WorkshopPage({ locale, dictionary }: WorkshopPageProps) {
   const reduceMotion = useReducedMotion();
+  const t = dictionary;
 
   const fadeUp = (delay = 0) =>
     reduceMotion
@@ -29,24 +38,36 @@ export function WorkshopPage() {
         aria-hidden
       />
 
-      <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5 sm:px-8">
-        <div className="flex items-center gap-3">
+      <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-5 sm:px-8">
+        <div className="flex min-w-0 items-center gap-3">
           <Image
             src="/epn-logo.png"
             alt="Escuela Politécnica Nacional"
             width={44}
             height={44}
-            className="h-10 w-10 object-contain sm:h-11 sm:w-11"
+            className="h-10 w-10 shrink-0 object-contain sm:h-11 sm:w-11"
             priority
           />
-          <div className="flex items-baseline gap-3">
-            <p className="font-display text-xl tracking-tight text-foreground sm:text-2xl">
-              EPN Workshop
+          <div className="flex min-w-0 items-baseline gap-3">
+            <p className="truncate font-display text-xl tracking-tight text-foreground sm:text-2xl">
+              {t.header.brand}
             </p>
-            <span className="hidden text-sm text-muted sm:inline">Cursor × Next.js</span>
+            <span className="hidden text-sm text-muted sm:inline">
+              {t.header.tagline}
+            </span>
           </div>
         </div>
-        <ThemeToggle />
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <LanguageSwitcher
+            locale={locale}
+            label={t.language.label}
+            names={{ en: t.language.en, es: t.language.es }}
+          />
+          <ThemeToggle
+            switchToLight={t.theme.switchToLight}
+            switchToDark={t.theme.switchToDark}
+          />
+        </div>
       </header>
 
       <main className="relative z-10">
@@ -55,30 +76,28 @@ export function WorkshopPage() {
             className="mb-5 font-mono text-xs uppercase tracking-[0.28em] text-accent"
             {...fadeUp(0)}
           >
-            Before we start
+            {t.hero.eyebrow}
           </motion.p>
           <motion.h1
             className="max-w-3xl font-display text-[clamp(2.6rem,8vw,5.4rem)] leading-[0.95] tracking-[-0.04em] text-foreground"
             {...fadeUp(0.08)}
           >
-            Workshop
+            {t.hero.titleLine1}
             <br />
-            setup guide
+            {t.hero.titleLine2}
           </motion.h1>
           <motion.p
             className="mt-6 max-w-xl text-lg leading-relaxed text-muted sm:text-xl"
             {...fadeUp(0.16)}
           >
-            Install Cursor, create your accounts, then open the template
-            repository. Bring these ready and you can build and deploy during
-            the session.
+            {t.hero.description}
           </motion.p>
           <motion.div className="mt-10 flex flex-wrap gap-3" {...fadeUp(0.24)}>
             <a
               href="#install"
               className="inline-flex h-12 items-center justify-center rounded-full bg-accent px-6 text-sm font-medium text-accent-fg transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
-              Start setup
+              {t.hero.startSetup}
             </a>
             <a
               href={TEMPLATE_URL}
@@ -86,20 +105,20 @@ export function WorkshopPage() {
               rel="noopener noreferrer"
               className="inline-flex h-12 items-center justify-center rounded-full border border-border bg-surface px-6 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
-              Open template repo
+              {t.hero.openTemplate}
             </a>
           </motion.div>
         </section>
 
-        <InstallSection reduceMotion={!!reduceMotion} />
-        <AccountsSection reduceMotion={!!reduceMotion} />
-        <ReadySection />
+        <InstallSection reduceMotion={!!reduceMotion} copy={t.install} />
+        <AccountsSection reduceMotion={!!reduceMotion} copy={t.accounts} />
+        <ReadySection copy={t.ready} />
       </main>
 
       <footer className="relative z-10 border-t border-border/70">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-6 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-8">
-          <p>EPN Workshop · Cursor instructions</p>
-          <p>Deployed on Vercel</p>
+          <p>{t.footer.left}</p>
+          <p>{t.footer.right}</p>
         </div>
       </footer>
     </div>

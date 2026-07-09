@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useCallback, useRef, useState } from "react";
 import { RocketIcon } from "@/components/icons";
 import { TEMPLATE_URL } from "@/components/workshop-data";
+import type { Dictionary } from "@/i18n/types";
 
 const CONFETTI_KEY = "epn-workshop-ready-confetti";
 
@@ -49,7 +50,11 @@ function openTemplate() {
   window.open(TEMPLATE_URL, "_blank", "noopener,noreferrer");
 }
 
-export function ReadySection() {
+type ReadySectionProps = {
+  copy: Dictionary["ready"];
+};
+
+export function ReadySection({ copy }: ReadySectionProps) {
   const reduceMotion = useReducedMotion();
   const [celebrating, setCelebrating] = useState(false);
   const navigating = useRef(false);
@@ -92,14 +97,13 @@ export function ReadySection() {
             <RocketIcon />
           </span>
           <p className="mt-6 font-mono text-xs uppercase tracking-[0.28em] text-accent">
-            Next step
+            {copy.eyebrow}
           </p>
           <h2 className="mt-4 font-display text-3xl tracking-tight text-foreground sm:text-5xl">
-            You&apos;re ready
+            {copy.title}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-            Once Cursor is installed and your accounts are set, open the
-            workshop repository and wait until we begin building the app.
+            {copy.description}
           </p>
           <button
             type="button"
@@ -107,7 +111,7 @@ export function ReadySection() {
             disabled={celebrating}
             className="mt-10 inline-flex h-12 items-center justify-center rounded-full bg-accent px-8 text-sm font-semibold text-accent-fg transition-[transform,opacity] hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:scale-[0.99] disabled:cursor-wait disabled:opacity-90"
           >
-            {celebrating ? "Opening template…" : "I'm all set! ✨"}
+            {celebrating ? copy.opening : copy.cta}
           </button>
         </motion.div>
       </div>

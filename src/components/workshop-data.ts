@@ -10,57 +10,42 @@ export type DownloadPlatform =
   | "linux-x64"
   | "linux-arm64";
 
-export const accounts = [
-  {
-    step: "01",
-    name: "Cursor",
-    purpose: "Your AI-native code editor for the workshop.",
-    href: "https://cursor.com",
-    cta: "Create Cursor account",
-  },
-  {
-    step: "02",
-    name: "GitHub",
-    purpose: "Host your project and fork the workshop template.",
-    href: "https://github.com/signup",
-    cta: "Create GitHub account",
-  },
-  {
-    step: "03",
-    name: "Vercel",
-    purpose: "Deploy your app from GitHub in a few clicks.",
-    href: "https://vercel.com/signup",
-    cta: "Create Vercel account",
-  },
+export const accountLinks = [
+  "https://cursor.com",
+  "https://github.com/signup",
+  "https://vercel.com/signup",
 ] as const;
 
 export const platformDownloads: Record<
   DownloadPlatform,
-  { label: string; shortLabel: string; href: string }
+  { platformKey: keyof PlatformLabels; href: string }
 > = {
   "darwin-universal": {
-    label: "Download for macOS",
-    shortLabel: "macOS",
+    platformKey: "macOS",
     href: "https://api2.cursor.sh/updates/download/golden/darwin-universal/cursor/3.10",
   },
   "win32-x64": {
-    label: "Download for Windows",
-    shortLabel: "Windows",
+    platformKey: "Windows",
     href: "https://api2.cursor.sh/updates/download/golden/win32-x64/cursor/3.10",
   },
   "win32-arm64": {
-    label: "Download for Windows (ARM)",
-    shortLabel: "Windows ARM",
+    platformKey: "Windows ARM",
     href: "https://api2.cursor.sh/updates/download/golden/win32-arm64/cursor/3.10",
   },
   "linux-x64": {
-    label: "Download for Linux",
-    shortLabel: "Linux",
+    platformKey: "Linux",
     href: "https://api2.cursor.sh/updates/download/golden/linux-x64/cursor/3.10",
   },
   "linux-arm64": {
-    label: "Download for Linux (ARM)",
-    shortLabel: "Linux ARM",
+    platformKey: "Linux ARM",
     href: "https://api2.cursor.sh/updates/download/golden/linux-arm64/cursor/3.10",
   },
+};
+
+export type PlatformLabels = {
+  macOS: string;
+  Windows: string;
+  "Windows ARM": string;
+  Linux: string;
+  "Linux ARM": string;
 };

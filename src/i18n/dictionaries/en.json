@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "title": "EPN Workshop · Setup Guide",
+    "description": "Prepare for the Cursor workshop: install Cursor, create accounts, then open the template repository."
+  },
+  "header": {
+    "brand": "EPN Workshop",
+    "tagline": "Cursor × Next.js"
+  },
+  "theme": {
+    "switchToLight": "Switch to light theme",
+    "switchToDark": "Switch to dark theme"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "es": "Español"
+  },
+  "hero": {
+    "eyebrow": "Before we start",
+    "titleLine1": "Workshop",
+    "titleLine2": "setup guide",
+    "description": "Install Cursor, create your accounts, then open the template repository. Bring these ready and you can build and deploy during the session.",
+    "startSetup": "Start setup",
+    "openTemplate": "Open template repo"
+  },
+  "install": {
+    "eyebrow": "Step one",
+    "title": "Install Cursor",
+    "description": "Start by downloading the desktop app. This is the editor we will use for the whole workshop.",
+    "productName": "Cursor IDE",
+    "productTagline": "The AI code editor",
+    "body": "Download and install Cursor for your operating system. You can create your account in the next step if you need one.",
+    "steps": [
+      "Download the installer for your machine.",
+      "Open Cursor and sign in.",
+      "Keep it ready for the workshop session."
+    ],
+    "allPlatforms": "All platforms",
+    "installGuide": "Install guide",
+    "choosePlatform": "Choose platform",
+    "downloadFor": "Download for {platform}",
+    "platforms": {
+      "macOS": "macOS",
+      "Windows": "Windows",
+      "Windows ARM": "Windows ARM",
+      "Linux": "Linux",
+      "Linux ARM": "Linux ARM"
+    },
+    "imageAltDiff": "Cursor 3 agent proposing code changes with inline diffs",
+    "imageAltAgents": "Cursor 3 Agents Window with completed agent task and code review"
+  },
+  "accounts": {
+    "eyebrow": "Step two",
+    "title": "Accounts you need",
+    "description": "After installing Cursor, sign up for each service. Free plans are enough.",
+    "items": [
+      {
+        "step": "01",
+        "name": "Cursor",
+        "purpose": "Your AI-native code editor for the workshop.",
+        "cta": "Create Cursor account"
+      },
+      {
+        "step": "02",
+        "name": "GitHub",
+        "purpose": "Host your project and fork the workshop template.",
+        "cta": "Create GitHub account"
+      },
+      {
+        "step": "03",
+        "name": "Vercel",
+        "purpose": "Deploy your app from GitHub in a few clicks.",
+        "cta": "Create Vercel account"
+      }
+    ]
+  },
+  "ready": {
+    "eyebrow": "Next step",
+    "title": "You're ready",
+    "description": "Once Cursor is installed and your accounts are set, open the workshop repository and wait until we begin building the app.",
+    "cta": "I'm all set! ✨",
+    "opening": "Opening template…"
+  },
+  "footer": {
+    "left": "EPN Workshop · Cursor instructions",
+    "right": "Deployed on Vercel"
+  }
+}

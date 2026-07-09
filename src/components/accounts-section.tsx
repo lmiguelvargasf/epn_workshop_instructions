@@ -2,27 +2,32 @@
 
 import { motion } from "framer-motion";
 import { ExternalIcon } from "@/components/icons";
-import { accounts } from "@/components/workshop-data";
+import { accountLinks } from "@/components/workshop-data";
+import type { Dictionary } from "@/i18n/types";
 
-export function AccountsSection({ reduceMotion }: { reduceMotion: boolean }) {
+type AccountsSectionProps = {
+  reduceMotion: boolean;
+  copy: Dictionary["accounts"];
+};
+
+export function AccountsSection({ reduceMotion, copy }: AccountsSectionProps) {
   return (
     <section id="accounts" className="scroll-mt-24 border-t border-border/70">
       <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:px-8 sm:py-28">
         <div className="max-w-2xl">
           <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">
-            Step two
+            {copy.eyebrow}
           </p>
           <h2 className="mt-4 font-display text-3xl tracking-tight text-foreground sm:text-5xl">
-            Accounts you need
+            {copy.title}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
-            After installing Cursor, sign up for each service. Free plans are
-            enough.
+            {copy.description}
           </p>
         </div>
 
         <ol className="mt-14 divide-y divide-border border-y border-border">
-          {accounts.map((account, index) => (
+          {copy.items.map((account, index) => (
             <motion.li
               key={account.name}
               className="group grid gap-6 py-8 sm:grid-cols-[5rem_1fr_auto] sm:items-center sm:gap-10 sm:py-10"
@@ -43,7 +48,7 @@ export function AccountsSection({ reduceMotion }: { reduceMotion: boolean }) {
                 <p className="mt-2 max-w-xl text-muted">{account.purpose}</p>
               </div>
               <a
-                href={account.href}
+                href={accountLinks[index]}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-11 items-center justify-center rounded-full border border-border bg-surface px-5 text-sm font-medium text-foreground transition-colors group-hover:border-accent group-hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:justify-self-end"

@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { Providers } from "@/components/providers";
+import { defaultLocale } from "@/i18n/config";
 import "./globals.css";
 
 const display = Fraunces({
@@ -21,12 +21,6 @@ const mono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
-export const metadata: Metadata = {
-  title: "EPN Workshop · Setup Guide",
-  description:
-    "Prepare for the Cursor workshop: install Cursor, create accounts, then open the template repository.",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,8 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang={defaultLocale}
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${display.variable} ${body.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">

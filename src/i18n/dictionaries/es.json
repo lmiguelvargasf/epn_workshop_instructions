@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "title": "Taller EPN · Guía de configuración",
+    "description": "Prepárate para el taller de Cursor: instala Cursor, crea tus cuentas y abre el repositorio plantilla."
+  },
+  "header": {
+    "brand": "Taller EPN",
+    "tagline": "Cursor × Next.js"
+  },
+  "theme": {
+    "switchToLight": "Cambiar a tema claro",
+    "switchToDark": "Cambiar a tema oscuro"
+  },
+  "language": {
+    "label": "Idioma",
+    "en": "English",
+    "es": "Español"
+  },
+  "hero": {
+    "eyebrow": "Antes de empezar",
+    "titleLine1": "Guía de",
+    "titleLine2": "configuración",
+    "description": "Instala Cursor, crea tus cuentas y abre el repositorio plantilla. Con todo listo, podrás construir y desplegar durante la sesión.",
+    "startSetup": "Empezar configuración",
+    "openTemplate": "Abrir repositorio plantilla"
+  },
+  "install": {
+    "eyebrow": "Paso uno",
+    "title": "Instala Cursor",
+    "description": "Empieza descargando la aplicación de escritorio. Este es el editor que usaremos durante todo el taller.",
+    "productName": "Cursor IDE",
+    "productTagline": "El editor de código con IA",
+    "body": "Descarga e instala Cursor para tu sistema operativo. Puedes crear tu cuenta en el siguiente paso si la necesitas.",
+    "steps": [
+      "Descarga el instalador para tu equipo.",
+      "Abre Cursor e inicia sesión.",
+      "Déjalo listo para la sesión del taller."
+    ],
+    "allPlatforms": "Todas las plataformas",
+    "installGuide": "Guía de instalación",
+    "choosePlatform": "Elegir plataforma",
+    "downloadFor": "Descargar para {platform}",
+    "platforms": {
+      "macOS": "macOS",
+      "Windows": "Windows",
+      "Windows ARM": "Windows ARM",
+      "Linux": "Linux",
+      "Linux ARM": "Linux ARM"
+    },
+    "imageAltDiff": "Agente de Cursor 3 proponiendo cambios de código con diffs en línea",
+    "imageAltAgents": "Ventana de Agents de Cursor 3 con una tarea completada y revisión de código"
+  },
+  "accounts": {
+    "eyebrow": "Paso dos",
+    "title": "Cuentas que necesitas",
+    "description": "Después de instalar Cursor, regístrate en cada servicio. Los planes gratuitos son suficientes.",
+    "items": [
+      {
+        "step": "01",
+        "name": "Cursor",
+        "purpose": "Tu editor de código con IA para el taller.",
+        "cta": "Crear cuenta de Cursor"
+      },
+      {
+        "step": "02",
+        "name": "GitHub",
+        "purpose": "Aloja tu proyecto y haz fork de la plantilla del taller.",
+        "cta": "Crear cuenta de GitHub"
+      },
+      {
+        "step": "03",
+        "name": "Vercel",
+        "purpose": "Despliega tu app desde GitHub en pocos clics.",
+        "cta": "Crear cuenta de Vercel"
+      }
+    ]
+  },
+  "ready": {
+    "eyebrow": "Siguiente paso",
+    "title": "Ya estás listo",
+    "description": "Cuando Cursor esté instalado y tus cuentas configuradas, abre el repositorio del taller y espera a que empecemos a construir la app.",
+    "cta": "¡Todo listo! ✨",
+    "opening": "Abriendo plantilla…"
+  },
+  "footer": {
+    "left": "Taller EPN · Instrucciones de Cursor",
+    "right": "Desplegado en Vercel"
+  }
+}
