@@ -187,33 +187,66 @@ export function InstallSection({ reduceMotion }: { reduceMotion: boolean }) {
               </div>
             </div>
 
-            <div className="relative min-h-[18rem] border-t border-border bg-[#0b0b0b] lg:min-h-full lg:border-l lg:border-t-0">
-              <div className="absolute inset-0 bg-[radial-gradient(80%_70%_at_70%_20%,rgba(255,255,255,0.08),transparent_60%)]" />
-              <div className="relative flex h-full items-end p-4 sm:p-6 lg:p-8">
-                <motion.div
-                  className="relative w-full overflow-hidden rounded-2xl border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.45)]"
-                  initial={reduceMotion ? false : { opacity: 0, y: 16, scale: 0.985 }}
-                  whileInView={
-                    reduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }
-                  }
-                  viewport={{ once: true, amount: 0.35 }}
-                  transition={{
-                    duration: 0.65,
-                    delay: 0.08,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                >
-                  <Image
-                    src="/cursor-preview.jpg"
-                    alt="Cursor product preview"
-                    width={1500}
-                    height={500}
-                    className="h-auto w-full object-cover object-center"
-                    sizes="(max-width: 1024px) 100vw, 560px"
-                    priority={false}
-                  />
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/50 to-transparent" />
-                </motion.div>
+            <div className="relative min-h-[22rem] overflow-hidden border-t border-border bg-[#09090b] lg:min-h-full lg:border-l lg:border-t-0">
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "radial-gradient(90% 70% at 70% 10%, rgba(255,255,255,0.08), transparent 55%), radial-gradient(50% 45% at 15% 85%, rgba(45,212,191,0.07), transparent 55%)",
+                }}
+              />
+              <div className="relative flex h-full items-center justify-center p-4 sm:p-5 lg:p-6">
+                <div className="relative mx-auto w-full max-w-[34rem] aspect-[5/4]">
+                  <motion.div
+                    className="absolute left-0 top-[8%] z-10 w-[78%] overflow-hidden rounded-[1rem] border border-white/12 shadow-[0_24px_70px_rgba(0,0,0,0.55)] ring-1 ring-white/5"
+                    initial={reduceMotion ? false : { opacity: 0, y: 22, rotate: -1.5 }}
+                    whileInView={
+                      reduceMotion ? undefined : { opacity: 1, y: 0, rotate: -1.5 }
+                    }
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{
+                      duration: 0.65,
+                      delay: 0.05,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                  >
+                    <Image
+                      src="/cursor-agents-diff.jpg"
+                      alt="Cursor 3 agent proposing code changes with inline diffs"
+                      width={1400}
+                      height={920}
+                      className="h-auto w-full object-cover object-left-top"
+                      sizes="(max-width: 1024px) 70vw, 420px"
+                      quality={90}
+                      priority={false}
+                    />
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute bottom-[4%] right-0 z-20 w-[84%] overflow-hidden rounded-[1.1rem] border border-white/14 shadow-[0_32px_90px_rgba(0,0,0,0.62)] ring-1 ring-white/8"
+                    initial={reduceMotion ? false : { opacity: 0, y: 26, rotate: 1.25 }}
+                    whileInView={
+                      reduceMotion ? undefined : { opacity: 1, y: 0, rotate: 1.25 }
+                    }
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{
+                      duration: 0.7,
+                      delay: 0.14,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                  >
+                    <Image
+                      src="/cursor-agents-window.jpg"
+                      alt="Cursor 3 Agents Window with completed agent task and code review"
+                      width={1680}
+                      height={1020}
+                      className="h-auto w-full object-cover object-left-top"
+                      sizes="(max-width: 1024px) 80vw, 480px"
+                      quality={90}
+                      priority={false}
+                    />
+                  </motion.div>
+                </div>
               </div>
             </div>
           </div>
