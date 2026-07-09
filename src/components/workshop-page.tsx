@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import { AccountsSection } from "@/components/accounts-section";
 import { ChecklistSection, TemplateSection } from "@/components/content-sections";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -28,11 +29,21 @@ export function WorkshopPage() {
       />
 
       <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5 sm:px-8">
-        <div className="flex items-baseline gap-3">
-          <p className="font-display text-xl tracking-tight text-foreground sm:text-2xl">
-            EPN Workshop
-          </p>
-          <span className="hidden text-sm text-muted sm:inline">Cursor × Next.js</span>
+        <div className="flex items-center gap-3">
+          <Image
+            src="/epn-logo.png"
+            alt="Escuela Politécnica Nacional"
+            width={44}
+            height={44}
+            className="h-10 w-10 object-contain sm:h-11 sm:w-11"
+            priority
+          />
+          <div className="flex items-baseline gap-3">
+            <p className="font-display text-xl tracking-tight text-foreground sm:text-2xl">
+              EPN Workshop
+            </p>
+            <span className="hidden text-sm text-muted sm:inline">Cursor × Next.js</span>
+          </div>
         </div>
         <ThemeToggle />
       </header>
