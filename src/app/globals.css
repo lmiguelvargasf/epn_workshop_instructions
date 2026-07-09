@@ -1,26 +1,121 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f3f6f9;
+  --foreground: #0c1222;
+  --muted: #5a6578;
+  --surface: #ffffff;
+  --surface-soft: #e8eef5;
+  --border: #d5dee8;
+  --accent: #0e7c86;
+  --accent-soft: #d7f1f3;
+  --accent-fg: #ffffff;
+  --glow: rgba(14, 124, 134, 0.18);
+  --grid: rgba(12, 18, 34, 0.06);
+  --hero-wash: radial-gradient(
+    120% 80% at 80% -10%,
+    rgba(14, 124, 134, 0.16),
+    transparent 55%
+  );
+}
+
+.dark {
+  --background: #080b10;
+  --foreground: #e8eef4;
+  --muted: #9aa8bc;
+  --surface: #10161f;
+  --surface-soft: #151d28;
+  --border: #243041;
+  --accent: #2dd4bf;
+  --accent-soft: #12353a;
+  --accent-fg: #041016;
+  --glow: rgba(45, 212, 191, 0.16);
+  --grid: rgba(232, 238, 244, 0.05);
+  --hero-wash: radial-gradient(
+    120% 80% at 80% -10%,
+    rgba(45, 212, 191, 0.14),
+    transparent 55%
+  );
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-fg: var(--accent-fg);
+  --font-sans: var(--font-ibm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-mono: var(--font-ibm-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 35%, transparent);
+  color: var(--foreground);
+}
+
+.grid-backdrop {
+  background-image:
+    var(--hero-wash),
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size:
+    auto,
+    48px 48px,
+    48px 48px;
+  background-position: center top;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  pointer-events: none;
+  background: var(--glow);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
