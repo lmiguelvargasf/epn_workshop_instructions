@@ -8,7 +8,7 @@ export function TemplateSection() {
         <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.28em] text-accent">
-              Step two
+              Step three
             </p>
             <h2 className="mt-4 font-display text-3xl tracking-tight text-foreground sm:text-5xl">
               Workshop template
@@ -58,6 +58,10 @@ export function ChecklistSection() {
           <li className="flex gap-3">
             <CheckIcon />
             <span>You can sign in to Cursor, GitHub, and Vercel.</span>
+          </li>
+          <li className="flex gap-3">
+            <CheckIcon />
+            <span>Cursor is installed and opens on your laptop.</span>
           </li>
           <li className="flex gap-3">
             <CheckIcon />
