@@ -22,7 +22,8 @@
     "titleLine2": "configuración",
     "description": "Instala Cursor, crea tus cuentas y abre el repositorio plantilla. Con todo listo, podrás construir y desplegar durante la sesión.",
     "startSetup": "Empezar configuración",
-    "openTemplate": "Abrir repositorio plantilla"
+    "openTemplate": "Abrir repositorio plantilla",
+    "openPrompts": "Prompts"
   },
   "install": {
     "eyebrow": "Paso uno",

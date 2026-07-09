@@ -7,7 +7,7 @@ import { InstallSection } from "@/components/install-section";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { ReadySection } from "@/components/ready-section";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { TEMPLATE_URL } from "@/components/workshop-data";
+import { PROMPTS_URL, TEMPLATE_URL } from "@/components/workshop-data";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/types";
 
@@ -106,6 +106,14 @@ export function WorkshopPage({ locale, dictionary }: WorkshopPageProps) {
               className="inline-flex h-12 items-center justify-center rounded-full border border-border bg-surface px-6 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               {t.hero.openTemplate}
+            </a>
+            <a
+              href={PROMPTS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 items-center justify-center rounded-full border border-border bg-surface px-6 text-sm font-medium text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            >
+              {t.hero.openPrompts}
             </a>
           </motion.div>
         </section>

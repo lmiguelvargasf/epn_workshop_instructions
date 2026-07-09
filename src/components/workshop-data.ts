@@ -1,4 +1,6 @@
 export const TEMPLATE_URL = "https://github.com/lmiguelvargasf/cursor_workshop";
+export const PROMPTS_URL =
+  "https://github.com/lmiguelvargasf/cursor_workshop/tree/prompts/prompts/academic";
 export const CURSOR_DOWNLOAD_URL = "https://cursor.com/download";
 export const CURSOR_INSTALL_DOCS_URL =
   "https://cursor.com/help/getting-started/install";

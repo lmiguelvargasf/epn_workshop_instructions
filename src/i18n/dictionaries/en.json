@@ -22,7 +22,8 @@
     "titleLine2": "setup guide",
     "description": "Install Cursor, create your accounts, then open the template repository. Bring these ready and you can build and deploy during the session.",
     "startSetup": "Start setup",
-    "openTemplate": "Open template repo"
+    "openTemplate": "Open template repo",
+    "openPrompts": "Prompts"
   },
   "install": {
     "eyebrow": "Step one",
