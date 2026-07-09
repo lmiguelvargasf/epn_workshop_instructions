@@ -191,7 +191,7 @@ export function InstallSection({ reduceMotion, copy }: InstallSectionProps) {
               </div>
             </div>
 
-            <div className="relative min-h-[22rem] overflow-hidden border-t border-border bg-[#09090b] lg:min-h-full lg:border-l lg:border-t-0">
+            <div className="relative hidden min-h-[22rem] overflow-hidden border-t border-border bg-[#09090b] lg:block lg:min-h-full lg:border-l lg:border-t-0">
               <div
                 className="absolute inset-0"
                 style={{
